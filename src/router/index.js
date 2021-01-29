@@ -1,14 +1,20 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-
+import SinglePage from '../views/SinglePage.vue'
 Vue.use(VueRouter)
 
 const routes = [
+  
   {
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/singlepage',
+    name: 'SinglePage',
+    component: SinglePage
   },
   {
     path: '/about',

@@ -5,10 +5,17 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-  },
-  mutations: {
+    allfavourites:[]
   },
   actions: {
+    setFav({commit}, users){
+      commit('set_favourites', users);
+    },
+  },
+  mutations: {
+    set_favourites(state, cdata){
+      state.allfavourites = cdata;
+  },
   },
   modules: {
   }
