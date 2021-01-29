@@ -32,24 +32,17 @@
       shortDicider:true,
       
     }),
-     beforeMount(){
-      console.log("oi f,mvfndjh")
-      // const url = 'https://reqres.in/api/users';
-      // axios.get(url).then((contacts)=>{
-      //   console.log("data")
-      //   const contactList =  contacts
-      //   console.log(contactList)
-      //   if(contactList.status === 200){
-      //     console.log("all good")
-      //     this.contactListData = contactList.data.data
-      //     this.tempArray = contactList.data.data
-      //   }else{
-      //     console.log("sonting went wrong")
-        // }
-        // console.log(data.data)
-        // this.apidata = data.data
-      // })
-
+    beforeMount(){
+        console.log("oi f,mvfndjh")
+        console.log(this.$store.state.allfavourites)
+        if(Array.isArray(this.$store.state.allfavourites)){
+          this.contactListData = this.$store.state.allfavourites
+          this.tempArray = this.$store.state.allfavourites
+        }else{
+          this.contactListData.push(this.$store.state.allfavourites)
+          this.tempArray.push(this.$store.state.allfavourites)
+        }
+        
     },
     computed: {
       // sortedArray: function() {
@@ -65,18 +58,7 @@
       // }
 },
      methods:{
-      goSinglePage(singleUser){
-        console.log("singleUser=============>>>")
-        console.log(singleUser)
-        console.log(this)
-        const router = this.$router;
-        console.log(router)
-        let context = singleUser
-        console.log("context")
-        console.log(context)
-        // { path: '/user/:id', component: User }
-        router.push({path:'/singlepage', query: {otherProp:context}})
-        },
+  
 
         sortedArray(){
           this.contactListData =[]

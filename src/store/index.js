@@ -5,7 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    allfavourites:[]
+    allfavourites:JSON.parse(localStorage.getItem('allfavourites')) || []
   },
   actions: {
     setFav({commit}, users){
@@ -15,6 +15,7 @@ export default new Vuex.Store({
   mutations: {
     set_favourites(state, cdata){
       state.allfavourites = cdata;
+      localStorage.setItem('allfavourites',  JSON.stringify(cdata));
   },
   },
   modules: {

@@ -29,6 +29,7 @@
     name: 'SinglePage',
     data: () => ({
       singleUserData:{},
+      contactListData:[],
     }),
     beforeMount(){
       console.log("oi f,mvfndjh")
@@ -38,9 +39,16 @@
     },
      methods:{
        addToFav(){
+          if(Array.isArray(this.$store.state.allfavourites)){
+          this.contactListData = this.$store.state.allfavourites
+        }else{
+          this.contactListData.push(this.$store.state.allfavourites)
+        }
          console.log("in favrate")
          console.log(this.$store.state.allfavourites)
-         this.$store.dispatch('setFav',this.singleUserData);
+        //  var myFavrate = this.$store.state.allfavourites
+         this.contactListData.push(this.singleUserData)
+         this.$store.dispatch('setFav',this.contactListData);
        }
     }
   }
